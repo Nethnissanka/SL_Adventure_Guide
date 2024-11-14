@@ -37,25 +37,6 @@ Clone this repository to your local machine:
 git clone https://github.com/yourusername/sri-lanka-adventure-guide.git
 cd sri-lanka-adventure-guide
 
-
-
-
-
-
-#Install Dependencies
-Run the following command to install the required dependencies:
-
-bash
-Copy code
 flutter pub get
-Run the App
-Run the app on an emulator or connected device:
 
-bash
-Copy code
 flutter run
-Directory Structure
-lib/ - Contains the Flutter code for the app.
-assets/ - Stores images, fonts, and other static assets.
-models/ - Contains Dart classes representing the data models of the app (e.g., destinations, events).
-screens/ - Contains the app screens and UI logic.
