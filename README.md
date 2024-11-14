@@ -35,7 +35,7 @@ Clone this repository to your local machine:
 
 ```bash
 git clone https://github.com/yourusername/sri-lanka-adventure-guide.git
-cd sri-lanka-adventure-guide
+cd adventure-guide
 
 flutter pub get
 
