@@ -1,9 +1,8 @@
 // main.dart
 // import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';  // Only import once
+import 'package:google_fonts/google_fonts.dart'; // Only import once
 import 'package:adventure_guide/pages/landing.dart';
-import 'package:adventure_guide/pages/welcom_page.dart';
 
 void main() {
   runApp(const MyApp());
