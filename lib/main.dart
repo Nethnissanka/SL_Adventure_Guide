@@ -33,6 +33,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Travel App',
       debugShowCheckedModeBanner: false,
+      
       theme: ThemeData(
         primarySwatch: Colors.blue,
         textTheme: GoogleFonts.mulishTextTheme(

@@ -507,7 +507,7 @@ class _TravelOnBoardingScreenState extends State<TravelOnBoardingScreen> {
                         Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                            builder: (_) => HomePage(),
+                            builder: (_) => const HomePage(),
                           ),
                           (route) => false,
                         );
@@ -586,7 +586,7 @@ class _TravelOnBoardingScreenState extends State<TravelOnBoardingScreen> {
                               Navigator.pushAndRemoveUntil(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (_) => HomePage(),
+                                  builder: (_) => const HomePage(),
                                 ),
                                 (route) => false,
                               );
