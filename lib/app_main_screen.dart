@@ -1,3 +1,4 @@
+import 'package:adventure_guide/my_app_home_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart'; // Make sure to add the iconsax package to your pubspec.yaml
 
@@ -18,7 +19,7 @@ class _AppMainScreenState extends State<AppMainScreen> {
   void initState() {
     super.initState();
     pages = [
-      const HomeScreen(), // Main Home Screen
+      const MyAppHomeScreen(), // Main Home Screen
       const TravelBlogScreen(), // Travel Blog Screen
       const ProfileScreen(), // Profile Screen
       const SettingsScreen(), // Settings Screen
