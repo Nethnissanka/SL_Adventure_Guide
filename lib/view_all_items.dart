@@ -71,7 +71,7 @@ class _ViewAllItemsState extends State<ViewAllItems> {
 
                       return Column(
                         children: [
-                          FoodItemsDisplay(documentSnapshot: documentSnapshot),
+                          PlacesDisplay(documentSnapshot: documentSnapshot),
                           Row(
                             children: [
                               const Icon(

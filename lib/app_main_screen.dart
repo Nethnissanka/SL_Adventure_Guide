@@ -1,4 +1,5 @@
 import 'package:adventure_guide/my_app_home_screen.dart';
+import 'package:adventure_guide/widgets/const.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart'; // Make sure to add the iconsax package to your pubspec.yaml
 
@@ -20,8 +21,8 @@ class _AppMainScreenState extends State<AppMainScreen> {
     super.initState();
     pages = [
       const MyAppHomeScreen(), // Main Home Screen
-      const TravelBlogScreen(), // Travel Blog Screen
-      const ProfileScreen(), // Profile Screen
+      const TravelBlogScreen(Iconsax.calendar5), // Travel Blog Screen
+      const ProfileScreen(Iconsax.heart5), // Profile Screen
       const SettingsScreen(), // Settings Screen
     ];
   }
@@ -66,6 +67,16 @@ class _AppMainScreenState extends State<AppMainScreen> {
       ),
     );
   }
+
+  navBarPage(iconName) {
+    return Center(
+      child: Icon(
+        iconName,
+        size: 100,
+        color: kprimaryColor,
+      ),
+    );
+  }
 }
 
 // Dummy screens for demonstration
@@ -81,7 +92,7 @@ class HomeScreen extends StatelessWidget {
 }
 
 class TravelBlogScreen extends StatelessWidget {
-  const TravelBlogScreen({super.key});
+  const TravelBlogScreen(IconData calendar5, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +103,7 @@ class TravelBlogScreen extends StatelessWidget {
 }
 
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+  const ProfileScreen(IconData heart5, {super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -15,19 +15,20 @@ class MyAppHomeScreen extends StatefulWidget {
 }
 
 class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
-  String category = "All";
+  // ignore: non_constant_identifier_names
+  String Category = "All";
   // for category
   final CollectionReference categoriesItems =
-      FirebaseFirestore.instance.collection("destinations");
+      FirebaseFirestore.instance.collection("App-Category");
   // for all itesm display
   Query get fileteredRecipes =>
       FirebaseFirestore.instance.collection("destinations").where(
-            'category',
-            isEqualTo: category,
+            'Category',
+            isEqualTo: Category,
           );
   Query get allRecipes => FirebaseFirestore.instance.collection("destinations");
   Query get selectedRecipes =>
-      category == "All" ? allRecipes : fileteredRecipes;
+      Category == "All" ? allRecipes : fileteredRecipes;
 
   @override
   Widget build(BuildContext context) {
@@ -61,6 +62,7 @@ class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
                       ),
                     ),
                     // for category
+
                     selectedCategory(),
                     const SizedBox(height: 10),
                     Row(
@@ -108,7 +110,7 @@ class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
                         scrollDirection: Axis.horizontal,
                         child: Row(
                           children: recipes
-                              .map((e) => FoodItemsDisplay(documentSnapshot: e))
+                              .map((e) => PlacesDisplay(documentSnapshot: e))
                               .toList(),
                         ),
                       ),
@@ -140,14 +142,14 @@ class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
                 (index) => GestureDetector(
                   onTap: () {
                     setState(() {
-                      category = streamSnapshot.data!.docs[index]['name'];
+                      Category = streamSnapshot.data!.docs[index]['name'];
                     });
                   },
                   child: Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(25),
                       color:
-                          category == streamSnapshot.data!.docs[index]['name']
+                          Category == streamSnapshot.data!.docs[index]['name']
                               ? kprimaryColor
                               : Colors.white,
                     ),
@@ -160,7 +162,7 @@ class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
                       streamSnapshot.data!.docs[index]['name'],
                       style: TextStyle(
                         color:
-                            category == streamSnapshot.data!.docs[index]['name']
+                            Category == streamSnapshot.data!.docs[index]['name']
                                 ? Colors.white
                                 : Colors.grey.shade600,
                         fontWeight: FontWeight.w600,

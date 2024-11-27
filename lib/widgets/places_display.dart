@@ -3,13 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:adventure_guide/Provider/favorite_provider.dart';
 import 'package:iconsax/iconsax.dart';
 
-class FoodItemsDisplay extends StatelessWidget {
+class PlacesDisplay extends StatelessWidget {
   final DocumentSnapshot<Object?> documentSnapshot;
 
-  const FoodItemsDisplay({super.key, required this.documentSnapshot});
+  const PlacesDisplay({super.key, required this.documentSnapshot});
 
   @override
   Widget build(BuildContext context) {
+    // Access the FavoriteProvider using 'FavoriteProvider.of(context)'
     final provider = FavoriteProvider.of(context);
 
     return GestureDetector(
@@ -22,7 +23,7 @@ class FoodItemsDisplay extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Hero(
-                  tag: documentSnapshot['image'],
+                  tag: documentSnapshot['pic'],
                   child: Container(
                     width: double.infinity,
                     height: 160,
@@ -31,7 +32,7 @@ class FoodItemsDisplay extends StatelessWidget {
                       image: DecorationImage(
                         fit: BoxFit.cover,
                         image: NetworkImage(
-                          documentSnapshot['image'], // image from firestore
+                          documentSnapshot['pic'], // pic from firestore
                         ),
                       ),
                     ),
@@ -39,7 +40,7 @@ class FoodItemsDisplay extends StatelessWidget {
                 ),
                 const SizedBox(height: 10),
                 Text(
-                  documentSnapshot['name'],
+                  documentSnapshot['Name'],
                   style: const TextStyle(
                     fontSize: 17,
                     fontWeight: FontWeight.bold,
@@ -54,7 +55,7 @@ class FoodItemsDisplay extends StatelessWidget {
                       color: Colors.grey,
                     ),
                     Text(
-                      "${documentSnapshot['cal']} Cal",
+                      "${documentSnapshot['District']} ",
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 12,
@@ -75,7 +76,7 @@ class FoodItemsDisplay extends StatelessWidget {
                     ),
                     const SizedBox(width: 5),
                     Text(
-                      "${documentSnapshot['time']} Min",
+                      "${documentSnapshot['Likes']} ",
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 12,
@@ -83,7 +84,7 @@ class FoodItemsDisplay extends StatelessWidget {
                       ),
                     ),
                   ],
-                )
+                ),
               ],
             ),
             // Favorite button
