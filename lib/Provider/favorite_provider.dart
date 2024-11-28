@@ -4,69 +4,68 @@ import 'package:provider/provider.dart';
 
 class FavoriteProvider extends ChangeNotifier {
   List<String> _favoriteIds = [];
-
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
   List<String> get favorites => _favoriteIds;
 
   FavoriteProvider() {
     loadFavorites();
   }
-  // toggle favorites states
+
+  // Toggle favorite state
   void toggleFavorite(DocumentSnapshot product) async {
     String productId = product.id;
+
     if (_favoriteIds.contains(productId)) {
       _favoriteIds.remove(productId);
-      await _removeFavorite(productId); // remove from favorite
+      await _removeFavorite(productId); // Remove from Firestore
     } else {
       _favoriteIds.add(productId);
-      await _addFavorite(productId); // add to favorite
+      await _addFavorite(productId); // Add to Firestore
     }
-    notifyListeners();
+
+    notifyListeners(); // Notify listeners to update UI
   }
 
-  // chek if a product is favorited
-  bool isExist(DocumentSnapshot prouct) {
-    return _favoriteIds.contains(prouct.id);
+  // Check if a product is in the favorites list
+  bool isExist(DocumentSnapshot product) {
+    return _favoriteIds.contains(product.id);
   }
 
-  // add favorites to firestore
+  // Add a product to Firestore
   Future<void> _addFavorite(String productId) async {
     try {
       await _firestore.collection("userFavorite").doc(productId).set({
-        'isFavorite':
-            true, // create the userFavorite collection and add item as favorites inf firestore
+        'isFavorite': true, // Store the favorite status in Firestore
       });
     } catch (e) {
-      print(e.toString());
+      debugPrint("Error adding favorite: $e");
     }
   }
 
-  // Remove favorite from firestore
+  // Remove a product from Firestore
   Future<void> _removeFavorite(String productId) async {
     try {
       await _firestore.collection("userFavorite").doc(productId).delete();
     } catch (e) {
-      print(e.toString());
+      debugPrint("Error removing favorite: $e");
     }
   }
 
-  // load favories from firestore (store favorite or not)
+  // Load all favorites from Firestore
   Future<void> loadFavorites() async {
     try {
       QuerySnapshot snapshot =
           await _firestore.collection("userFavorite").get();
       _favoriteIds = snapshot.docs.map((doc) => doc.id).toList();
     } catch (e) {
-      print(e.toString());
+      debugPrint("Error loading favorites: $e");
     }
     notifyListeners();
   }
 
-  // Static method to access the provider from any context
+  // Static method for easy provider access
   static FavoriteProvider of(BuildContext context, {bool listen = true}) {
-    return Provider.of<FavoriteProvider>(
-      context,
-      listen: listen,
-    );
+    return Provider.of<FavoriteProvider>(context, listen: listen);
   }
 }

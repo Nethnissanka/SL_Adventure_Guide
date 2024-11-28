@@ -1,3 +1,5 @@
+import 'package:adventure_guide/Provider/favorite_provider.dart';
+import 'package:adventure_guide/favorite_screen.dart';
 import 'package:adventure_guide/my_app_home_screen.dart';
 import 'package:adventure_guide/widgets/const.dart';
 import 'package:flutter/material.dart';
@@ -22,7 +24,7 @@ class _AppMainScreenState extends State<AppMainScreen> {
     pages = [
       const MyAppHomeScreen(), // Main Home Screen
       const TravelBlogScreen(Iconsax.calendar5), // Travel Blog Screen
-      const ProfileScreen(Iconsax.heart5), // Profile Screen
+      const FavoriteScreen(Iconsax.heart5), // Profile Screen
       const SettingsScreen(), // Settings Screen
     ];
   }
@@ -102,8 +104,8 @@ class TravelBlogScreen extends StatelessWidget {
   }
 }
 
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen(IconData heart5, {super.key});
+class FavoriteScreen extends StatelessWidget {
+  const FavoriteScreen(IconData heart5, {super.key});
 
   @override
   Widget build(BuildContext context) {

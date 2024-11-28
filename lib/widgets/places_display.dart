@@ -96,7 +96,8 @@ class PlacesDisplay extends StatelessWidget {
                 backgroundColor: Colors.white,
                 child: InkWell(
                   onTap: () {
-                    provider.toggleFavorite(documentSnapshot);
+                    provider.toggleFavorite(
+                        documentSnapshot); // Trigger favorite toggle
                   },
                   child: Icon(
                     provider.isExist(documentSnapshot)

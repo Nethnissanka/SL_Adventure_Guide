@@ -29,17 +29,22 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Travel App',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        textTheme: GoogleFonts.mulishTextTheme(
-          Theme.of(context).textTheme,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => FavoriteProvider()),
+      ],
+      child: MaterialApp(
+        title: 'Travel App',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          textTheme: GoogleFonts.mulishTextTheme(
+            Theme.of(context).textTheme,
+          ),
         ),
+        // Set the initial screen of your app
+        home: const TravelOnBoardingScreen(),
       ),
-      // home: WelcomePage(),
-      home: const TravelOnBoardingScreen(),
     );
   }
 }
