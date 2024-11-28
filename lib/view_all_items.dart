@@ -13,8 +13,8 @@ class ViewAllItems extends StatefulWidget {
 }
 
 class _ViewAllItemsState extends State<ViewAllItems> {
-  final CollectionReference completeApp =
-      FirebaseFirestore.instance.collection("Complete-Flutter-App");
+  final CollectionReference destinations =
+      FirebaseFirestore.instance.collection("destinations");
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,7 +53,7 @@ class _ViewAllItemsState extends State<ViewAllItems> {
           children: [
             const SizedBox(height: 10),
             StreamBuilder(
-              stream: completeApp.snapshots(),
+              stream: destinations.snapshots(),
               builder: (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {
                 if (streamSnapshot.hasData) {
                   return GridView.builder(
@@ -63,7 +63,7 @@ class _ViewAllItemsState extends State<ViewAllItems> {
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      childAspectRatio: 0.78,
+                      childAspectRatio: 0.48,
                     ),
                     itemBuilder: (context, index) {
                       final DocumentSnapshot documentSnapshot =
@@ -72,27 +72,27 @@ class _ViewAllItemsState extends State<ViewAllItems> {
                       return Column(
                         children: [
                           PlacesDisplay(documentSnapshot: documentSnapshot),
-                          Row(
+                          const Row(
                             children: [
-                              const Icon(
+                              Icon(
                                 Iconsax.star1,
                                 color: Colors.amberAccent,
                               ),
-                              const SizedBox(width: 5),
-                              Text(
-                                documentSnapshot['rate'],
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              const Text("/5"),
-                              const SizedBox(width: 5),
-                              Text(
-                                "${documentSnapshot['reviews'.toString()]} Reviews",
-                                style: const TextStyle(
-                                  color: Colors.grey,
-                                ),
-                              ),
+                              SizedBox(width: 5),
+                              // Text(
+                              //   documentSnapshot['Name'],
+                              //   style: const TextStyle(
+                              //     fontWeight: FontWeight.bold,
+                              //   ),
+                              // ),
+                              Text("/5"),
+                              SizedBox(width: 5),
+                              // Text(
+                              //   "${documentSnapshot['District'.toString()]} District",
+                              //   style: const TextStyle(
+                              //     color: Colors.grey,
+                              //   ),
+                              // ),
                             ],
                           ),
                         ],
