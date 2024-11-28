@@ -63,7 +63,7 @@ class _ViewAllItemsState extends State<ViewAllItems> {
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
-                      childAspectRatio: 0.48,
+                      childAspectRatio: 0.68,
                     ),
                     itemBuilder: (context, index) {
                       final DocumentSnapshot documentSnapshot =
