@@ -20,6 +20,7 @@ class BannerToExplore extends StatelessWidget {
             top: 32,
             left: 20,
             child: Column(
+              
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
