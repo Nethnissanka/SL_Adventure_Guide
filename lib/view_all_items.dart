@@ -1,3 +1,4 @@
+//view_all_items.dart
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:adventure_guide/widgets/const.dart';
@@ -21,7 +22,7 @@ class _ViewAllItemsState extends State<ViewAllItems> {
       backgroundColor: kbackgroundColor,
       appBar: AppBar(
         backgroundColor: kbackgroundColor,
-        automaticallyImplyLeading: false, // it remove the appbar back button
+        automaticallyImplyLeading: false, // it removes the appbar back button
         elevation: 0,
         actions: [
           const SizedBox(width: 15),
@@ -33,9 +34,10 @@ class _ViewAllItemsState extends State<ViewAllItems> {
           ),
           const Spacer(),
           const Text(
-            "Quick & Easy",
+            "Recommended",
             style: TextStyle(
               fontSize: 20,
+              fontFamily: 'Poppins',
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -48,59 +50,33 @@ class _ViewAllItemsState extends State<ViewAllItems> {
         ],
       ),
       body: SingleChildScrollView(
-        padding: const EdgeInsets.only(left: 15, right: 5),
+        padding: const EdgeInsets.only(left: 15, right: 10),
         child: Column(
           children: [
-            const SizedBox(height: 10),
+            const SizedBox(height:40),
             StreamBuilder(
               stream: destinations.snapshots(),
               builder: (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {
                 if (streamSnapshot.hasData) {
-                  return GridView.builder(
+                  return ListView.builder(
                     itemCount: streamSnapshot.data!.docs.length,
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      childAspectRatio: 0.68,
-                    ),
                     itemBuilder: (context, index) {
                       final DocumentSnapshot documentSnapshot =
                           streamSnapshot.data!.docs[index];
 
-                      return Column(
-                        children: [
-                          PlacesDisplay(documentSnapshot: documentSnapshot),
-                          const Row(
-                            children: [
-                              Icon(
-                                Iconsax.star1,
-                                color: Colors.amberAccent,
-                              ),
-                              SizedBox(width: 5),
-                              // Text(
-                              //   documentSnapshot['Name'],
-                              //   style: const TextStyle(
-                              //     fontWeight: FontWeight.bold,
-                              //   ),
-                              // ),
-                              Text("/5"),
-                              SizedBox(width: 5),
-                              // Text(
-                              //   "${documentSnapshot['District'.toString()]} District",
-                              //   style: const TextStyle(
-                              //     color: Colors.grey,
-                              //   ),
-                              // ),
-                            ],
-                          ),
-                        ],
+                      return Padding(
+                        padding: const EdgeInsets.only(bottom: 10, top: 10),
+                      child: SizedBox(
+                        height: 290,
+                        child: PlacesDisplay(documentSnapshot: documentSnapshot),
+                        ),
                       );
                     },
                   );
                 }
-                // it means if snapshot has date then show the date otherwise show the progress bar
+                // Show a progress bar while loading data
                 return const Center(
                   child: CircularProgressIndicator(),
                 );
@@ -112,3 +88,10 @@ class _ViewAllItemsState extends State<ViewAllItems> {
     );
   }
 }
+
+
+
+
+
+
+//

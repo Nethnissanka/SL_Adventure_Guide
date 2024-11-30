@@ -1,4 +1,4 @@
-import 'package:adventure_guide/Provider/favorite_provider.dart';
+//app_main_screen.dart
 import 'package:adventure_guide/favorite_screen.dart';
 import 'package:adventure_guide/my_app_home_screen.dart';
 import 'package:adventure_guide/widgets/const.dart';
@@ -23,23 +23,20 @@ class _AppMainScreenState extends State<AppMainScreen> {
     super.initState();
     pages = [
       const MyAppHomeScreen(), // Main Home Screen
-      const TravelBlogScreen(Iconsax.calendar5), // Travel Blog Screen
-      const FavoriteScreen(Iconsax.heart5), // Profile Screen
-      const SettingsScreen(), // Settings Screen
+      const DistrictScreen(), // Distric wise Screen
+      const FavoriteScreen(), // Fav Screen
+      const ProfileScreen(), // Profile Screen
+      const SettingsScreen(),// Settings Screen
     ];
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('App Main Screen'),
-        backgroundColor: Colors.blueAccent,
-      ),
       body: pages[selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedIndex,
-        selectedItemColor: Colors.blueAccent,
+        selectedItemColor: const Color.fromARGB(255, 6, 76, 72),
         unselectedItemColor: Colors.grey,
         onTap: (index) {
           setState(() {
@@ -52,17 +49,23 @@ class _AppMainScreenState extends State<AppMainScreen> {
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon:
-                Icon(selectedIndex == 1 ? Iconsax.calendar5 : Iconsax.calendar),
-            label: "Travel Blog",
+            icon: Icon(selectedIndex == 1 ? Iconsax.location : Iconsax.location),
+            label: "Districts",
           ),
           BottomNavigationBarItem(
             icon: Icon(selectedIndex == 2 ? Iconsax.heart5 : Iconsax.heart),
+            label: "Favourites",
+          ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(selectedIndex == 3 ? Iconsax.profile : Iconsax.profile1),
+          //   label: "Profile",
+          // ),
+          BottomNavigationBarItem(
+            icon: Icon(selectedIndex == 3 ? Iconsax.user : Iconsax.user),
             label: "Profile",
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-                selectedIndex == 3 ? Iconsax.setting_21 : Iconsax.setting_2),
+            icon: Icon(selectedIndex == 4 ? Iconsax.setting_21 : Iconsax.setting_2),
             label: "Settings",
           ),
         ],
@@ -82,30 +85,10 @@ class _AppMainScreenState extends State<AppMainScreen> {
 }
 
 // Dummy screens for demonstration
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('This is the Home Screen.'),
-    );
-  }
-}
 
-class TravelBlogScreen extends StatelessWidget {
-  const TravelBlogScreen(IconData calendar5, {super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('This is the Travel Blog screen.'),
-    );
-  }
-}
-
-class FavoriteScreen extends StatelessWidget {
-  const FavoriteScreen(IconData heart5, {super.key});
+class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -114,6 +97,18 @@ class FavoriteScreen extends StatelessWidget {
     );
   }
 }
+class DistrictScreen extends StatelessWidget {
+  const DistrictScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: Text('This is the District screen.'),
+    );
+  }
+}
+
+
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});

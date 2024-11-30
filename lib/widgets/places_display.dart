@@ -1,3 +1,4 @@
+// widgets/places_display.dart
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:adventure_guide/Provider/favorite_provider.dart';
@@ -26,7 +27,7 @@ class PlacesDisplay extends StatelessWidget {
                   tag: documentSnapshot['pic'],
                   child: Container(
                     width: double.infinity,
-                    height: 160,
+                    height: 200,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(15),
                       image: DecorationImage(
@@ -38,7 +39,7 @@ class PlacesDisplay extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 10),
+                const SizedBox(height: 15),
                 Text(
                   documentSnapshot['Name'],
                   style: const TextStyle(
@@ -46,13 +47,13 @@ class PlacesDisplay extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const SizedBox(height: 5),
+                const SizedBox(height: 10),
                 Row(
                   children: [
                     const Icon(
-                      Iconsax.flash_1,
+                      Iconsax.location,
                       size: 16,
-                      color: Colors.grey,
+                      color: Color.fromARGB(255, 5, 94, 25),
                     ),
                     Text(
                       "${documentSnapshot['District']} ",
@@ -62,27 +63,42 @@ class PlacesDisplay extends StatelessWidget {
                         color: Colors.grey,
                       ),
                     ),
-                    const Text(
-                      " · ",
-                      style: TextStyle(
-                        fontWeight: FontWeight.w900,
-                        color: Colors.grey,
-                      ),
-                    ),
+                   
                     const Icon(
-                      Iconsax.clock,
+                      Iconsax.star1,
                       size: 16,
-                      color: Colors.grey,
+                      color: Color.fromARGB(255, 230, 193, 46),
                     ),
                     const SizedBox(width: 5),
                     Text(
-                      "${documentSnapshot['Likes']} ",
+                      "${documentSnapshot['Rate']} ",
                       style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 12,
                         color: Colors.grey,
                       ),
                     ),
+                    
+                    
+                  ],
+                ),
+                Row(
+                  children: [
+                    const SizedBox(width: 5),
+                    Text(
+                      "${documentSnapshot['Likes']} ",
+                      style: const TextStyle(
+                        
+                        fontSize: 12,
+                        color: Color.fromARGB(255, 31, 31, 31),
+                      ),
+                    ),
+                    const SizedBox(width: 5),
+                                const Text(
+                                  "Reviews",
+                                  style: TextStyle(color: Color.fromARGB(255, 31, 31, 31),),
+                                  
+                                ),
                   ],
                 ),
               ],
@@ -104,7 +120,7 @@ class PlacesDisplay extends StatelessWidget {
                         ? Iconsax.heart5
                         : Iconsax.heart,
                     color: provider.isExist(documentSnapshot)
-                        ? Colors.red
+                        ? const Color.fromARGB(255, 184, 7, 45)
                         : Colors.black,
                     size: 20,
                   ),
