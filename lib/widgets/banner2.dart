@@ -1,6 +1,5 @@
 import 'package:adventure_guide/view_all_items.dart';
 import 'package:flutter/material.dart';
-import 'package:adventure_guide/widgets/const.dart';
 
 class Banner2 extends StatelessWidget {
   const Banner2({super.key});
