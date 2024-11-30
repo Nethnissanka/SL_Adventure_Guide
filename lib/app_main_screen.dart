@@ -23,9 +23,10 @@ class _AppMainScreenState extends State<AppMainScreen> {
     super.initState();
     pages = [
       const MyAppHomeScreen(), // Main Home Screen
-      const FavoriteScreen(), // Travel Blog Screen
-      const FavoriteScreen(), // Profile Screen
-      const SettingsScreen(), // Settings Screen
+      const DistrictScreen(), // Distric wise Screen
+      const FavoriteScreen(), // Fav Screen
+      const ProfileScreen(), // Profile Screen
+      const SettingsScreen(),// Settings Screen
     ];
   }
 
@@ -48,17 +49,23 @@ class _AppMainScreenState extends State<AppMainScreen> {
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon:
-                Icon(selectedIndex == 1 ? Iconsax.calendar5 : Iconsax.location),
-            label: "Travel Blog",
+            icon: Icon(selectedIndex == 1 ? Iconsax.location : Iconsax.location),
+            label: "Districts",
           ),
           BottomNavigationBarItem(
             icon: Icon(selectedIndex == 2 ? Iconsax.heart5 : Iconsax.heart),
+            label: "Favourites",
+          ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(selectedIndex == 3 ? Iconsax.profile : Iconsax.profile1),
+          //   label: "Profile",
+          // ),
+          BottomNavigationBarItem(
+            icon: Icon(selectedIndex == 3 ? Iconsax.user : Iconsax.user),
             label: "Profile",
           ),
           BottomNavigationBarItem(
-            icon: Icon(
-                selectedIndex == 3 ? Iconsax.setting_21 : Iconsax.setting_2),
+            icon: Icon(selectedIndex == 4 ? Iconsax.setting_21 : Iconsax.setting_2),
             label: "Settings",
           ),
         ],
@@ -80,13 +87,23 @@ class _AppMainScreenState extends State<AppMainScreen> {
 // Dummy screens for demonstration
 
 
-class TravelBlogScreen extends StatelessWidget {
-  const TravelBlogScreen(IconData calendar5, {super.key});
+class ProfileScreen extends StatelessWidget {
+  const ProfileScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const Center(
-      child: Text('This is the Travel Blog screen.'),
+      child: Text('This is the Profile screen.'),
+    );
+  }
+}
+class DistrictScreen extends StatelessWidget {
+  const DistrictScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Center(
+      child: Text('This is the District screen.'),
     );
   }
 }

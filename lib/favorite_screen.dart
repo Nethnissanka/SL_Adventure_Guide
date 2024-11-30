@@ -24,10 +24,12 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
         backgroundColor: const Color.fromARGB(255, 6, 76, 72),
         centerTitle: true,
         title: const Text(
-          "Favorites",
+          "Favourites",
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontFamily: 'Poppins',
+            color: Colors.white,
+            fontSize: 24,
           ),
         ),
       ),
@@ -115,7 +117,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                                         style: const TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontFamily: 'Poppins',
-                                          fontSize: 24,
+                                          fontSize: 22,
                                         ),
                                       ),
                                       const SizedBox(height: 5),
@@ -130,7 +132,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                                           Text(
                                             "$district ",
                                             style: const TextStyle(
-                                              fontWeight: FontWeight.bold,
+                                              // fontWeight: FontWeight.bold,
                                               fontFamily: 'Poppins',
                                               fontSize: 18,
                                               color: Color.fromARGB(

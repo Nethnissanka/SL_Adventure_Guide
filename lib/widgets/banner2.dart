@@ -2,8 +2,8 @@ import 'package:adventure_guide/view_all_items.dart';
 import 'package:flutter/material.dart';
 import 'package:adventure_guide/widgets/const.dart';
 
-class BannerToExplore extends StatelessWidget {
-  const BannerToExplore({super.key});
+class Banner2 extends StatelessWidget {
+  const Banner2({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,21 +12,21 @@ class BannerToExplore extends StatelessWidget {
       height: 170,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
-        color: const Color.fromARGB(255, 6, 76, 72),
+        color: const Color.fromARGB(255, 210, 164, 67),
       ),
       child: Stack(
         children: [
           Positioned(
             top: 32,
-            left: 20,
+            right: 40,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  "Explore Sri Lanka's Hidden \nBeauty and Adventure",
+                  "Want to Know best\nhiking trails?",
                   style: TextStyle(
                     height: 1.1,
-                    fontSize: 22,
+                    fontSize: 24,
                     fontFamily: 'Poppins',
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
@@ -54,6 +54,7 @@ class BannerToExplore extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 15,
                       fontFamily: 'Poppins',
+                      
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
                     ),
@@ -65,9 +66,9 @@ class BannerToExplore extends StatelessWidget {
           Positioned(
             top: 0,
             bottom: 0,
-            right: -20,
+            left: 10,
             child: Image.asset(
-              "assets/1.png",
+              "assets/7.png",
             ),
           ),
         ],
