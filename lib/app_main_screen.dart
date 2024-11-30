@@ -1,4 +1,4 @@
-import 'package:adventure_guide/Provider/favorite_provider.dart';
+//app_main_screen.dart
 import 'package:adventure_guide/favorite_screen.dart';
 import 'package:adventure_guide/my_app_home_screen.dart';
 import 'package:adventure_guide/widgets/const.dart';
@@ -23,8 +23,8 @@ class _AppMainScreenState extends State<AppMainScreen> {
     super.initState();
     pages = [
       const MyAppHomeScreen(), // Main Home Screen
-      const TravelBlogScreen(Iconsax.calendar5), // Travel Blog Screen
-      const FavoriteScreen(Iconsax.heart5), // Profile Screen
+      const FavoriteScreen(), // Travel Blog Screen
+      const FavoriteScreen(), // Profile Screen
       const SettingsScreen(), // Settings Screen
     ];
   }
@@ -32,14 +32,10 @@ class _AppMainScreenState extends State<AppMainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('App Main Screen'),
-        backgroundColor: Colors.blueAccent,
-      ),
       body: pages[selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: selectedIndex,
-        selectedItemColor: Colors.blueAccent,
+        selectedItemColor: const Color.fromARGB(255, 6, 76, 72),
         unselectedItemColor: Colors.grey,
         onTap: (index) {
           setState(() {
@@ -53,7 +49,7 @@ class _AppMainScreenState extends State<AppMainScreen> {
           ),
           BottomNavigationBarItem(
             icon:
-                Icon(selectedIndex == 1 ? Iconsax.calendar5 : Iconsax.calendar),
+                Icon(selectedIndex == 1 ? Iconsax.calendar5 : Iconsax.location),
             label: "Travel Blog",
           ),
           BottomNavigationBarItem(
@@ -82,16 +78,7 @@ class _AppMainScreenState extends State<AppMainScreen> {
 }
 
 // Dummy screens for demonstration
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('This is the Home Screen.'),
-    );
-  }
-}
 
 class TravelBlogScreen extends StatelessWidget {
   const TravelBlogScreen(IconData calendar5, {super.key});
@@ -104,16 +91,7 @@ class TravelBlogScreen extends StatelessWidget {
   }
 }
 
-class FavoriteScreen extends StatelessWidget {
-  const FavoriteScreen(IconData heart5, {super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('This is the Profile screen.'),
-    );
-  }
-}
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});

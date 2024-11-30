@@ -1,3 +1,4 @@
+//my_app_home_screen.dart
 import 'package:adventure_guide/view_all_items.dart';
 import 'package:flutter/material.dart';
 import 'package:adventure_guide/widgets/const.dart';
@@ -57,6 +58,7 @@ class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
                         "Categories",
                         style: TextStyle(
                           fontSize: 20,
+                          fontFamily: 'Poppins',
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -69,7 +71,7 @@ class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         const Text(
-                          "Quick & Easy",
+                          "Recommended",
                           style: TextStyle(
                             fontSize: 20,
                             letterSpacing: 0.1,
@@ -150,7 +152,7 @@ class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
                       borderRadius: BorderRadius.circular(25),
                       color:
                           Category == streamSnapshot.data!.docs[index]['name']
-                              ? kprimaryColor
+                              ? const Color.fromARGB(255, 22, 101, 76)
                               : Colors.white,
                     ),
                     padding: const EdgeInsets.symmetric(
@@ -191,9 +193,10 @@ class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
           prefixIcon: const Icon(Iconsax.search_normal),
           fillColor: Colors.white,
           border: InputBorder.none,
-          hintText: "Search any recipes",
+          hintText: "Search any places",
           hintStyle: const TextStyle(
             color: Colors.grey,
+            fontFamily: 'Poppins',
           ),
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
@@ -210,9 +213,11 @@ class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
     return Row(
       children: [
         const Text(
-          "Explore \n the Nature?",
+          "Explore \nthe Nature?",
           style: TextStyle(
-            fontSize: 32,
+            fontSize:50,
+            fontFamily: 'Poppins',
+            color: Color.fromARGB(255, 6, 76, 72),
             fontWeight: FontWeight.bold,
             height: 1,
           ),

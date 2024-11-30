@@ -11,7 +11,7 @@ class BannerToExplore extends StatelessWidget {
       height: 170,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
-        color: kBannerColor,
+        color: const Color.fromARGB(255, 6, 76, 72),
       ),
       child: Stack(
         children: [
@@ -22,10 +22,11 @@ class BannerToExplore extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
-                  "Cook the best\nrecipes at home",
+                  "Explore Sri Lanka's Hidden \nBeauty and Adventure",
                   style: TextStyle(
                     height: 1.1,
                     fontSize: 22,
+                    fontFamily: 'Poppins',
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
                   ),
@@ -44,6 +45,7 @@ class BannerToExplore extends StatelessWidget {
                     "Explore",
                     style: TextStyle(
                       fontSize: 15,
+                      fontFamily: 'Poppins',
                       fontWeight: FontWeight.bold,
                       color: Colors.black,
                     ),
@@ -56,8 +58,8 @@ class BannerToExplore extends StatelessWidget {
             top: 0,
             bottom: 0,
             right: -20,
-            child: Image.network(
-              "https://th.bing.com/th/id/R.54f4df217d3dbcda01c25d39ba1f6db7?rik=kjFAh9dHYU1uPw&pid=ImgRaw&r=0",
+            child: Image.asset(
+              "assets/1.png",
             ),
           ),
         ],

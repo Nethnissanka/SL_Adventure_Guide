@@ -1,3 +1,4 @@
+// Provider/favorite_provider.dart
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -9,7 +10,7 @@ class FavoriteProvider extends ChangeNotifier {
   List<String> get favorites => _favoriteIds;
 
   FavoriteProvider() {
-    loadFavorites();
+    _loadFavorites();
   }
 
   // Toggle favorite state
@@ -53,7 +54,7 @@ class FavoriteProvider extends ChangeNotifier {
   }
 
   // Load all favorites from Firestore
-  Future<void> loadFavorites() async {
+  Future<void> _loadFavorites() async {
     try {
       QuerySnapshot snapshot =
           await _firestore.collection("userFavorite").get();
