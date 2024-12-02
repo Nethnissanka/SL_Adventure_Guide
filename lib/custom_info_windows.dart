@@ -136,7 +136,7 @@ class _CustomInfoWindowsState extends State<CustomInfoWindows> {
           GoogleMap(
             initialCameraPosition: const CameraPosition(
               target: LatLng(
-                  28.2096, 83.9856), // Initial position of the camera (Pokhara)
+                  7.05, 81.13), // Initial position of the camera (Pokhara)
               zoom: 7, // Initial zoom level
             ),
             markers: markers, // Set of markers to be displayed on the map
