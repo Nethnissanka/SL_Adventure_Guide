@@ -1,4 +1,5 @@
 //app_main_screen.dart
+import 'package:adventure_guide/districtScreen.dart';
 import 'package:adventure_guide/favorite_screen.dart';
 import 'package:adventure_guide/my_app_home_screen.dart';
 import 'package:adventure_guide/widgets/const.dart';
@@ -97,17 +98,6 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
-class DistrictScreen extends StatelessWidget {
-  const DistrictScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('This is the District screen.'),
-    );
-  }
-}
-
 
 
 class SettingsScreen extends StatelessWidget {

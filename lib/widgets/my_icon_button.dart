@@ -12,7 +12,7 @@ class MyIconButton extends StatelessWidget {
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15),
           ),
-          backgroundColor: const Color.fromARGB(255, 204, 220, 216),
+          backgroundColor: const Color.fromARGB(255, 255, 255, 255),
           fixedSize: const Size(40, 40)),
       onPressed: pressed,
       icon: Icon(icon),
