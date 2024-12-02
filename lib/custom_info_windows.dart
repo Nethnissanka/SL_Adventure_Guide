@@ -31,8 +31,8 @@ class _CustomInfoWindowsState extends State<CustomInfoWindows> {
     "  Baththalangunduwa",
     "  Bomburu Ella",
     "  Blue Beach Island",
-    "  Madu River"
-        "  Madolsima"
+    "  Madu River",
+    "  Madolsima"
   ];
 
   // Corresponding image URLs for the locations
