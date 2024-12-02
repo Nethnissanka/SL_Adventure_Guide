@@ -63,8 +63,34 @@ class _DestinationDetailScreenState extends State<DestinationDetailScreen> {
                     ],
                   ),
                 ),
+                Positioned(
+                  left: 0, right: 0, top:MediaQuery.of(context).size.height / 2.1 - 30,
+                  child: Container(
+                    width: double.infinity,
+                    padding: const EdgeInsets.all(50),
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(30)
+                      
+                    ),
+                  ),
+                ),
               ],
             ),
+
+            //for drag handle
+            Center(
+              child: Container(
+                // margin: const EdgeInsets.only(top: 5),
+                height: 5,
+                width: 50,
+                decoration: BoxDecoration(
+                  color: Colors.grey[300],
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+            ),
+
             const SizedBox(height: 10),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -200,13 +226,19 @@ class _DestinationDetailScreenState extends State<DestinationDetailScreen> {
                                   child: Card(
                                     elevation: 5,
                                     shape: RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(5),
+
+                                      borderRadius: BorderRadius.circular(25),
+
                                     ),
                                     color: Colors.white,
                                     child: ListTile(
                                       contentPadding:
                                           const EdgeInsets.symmetric(
-                                              vertical: 5, horizontal: 5),
+
+                                              vertical: 15, horizontal: 5),
+
+                                             
+
                                       leading: ClipRRect(
                                         borderRadius: BorderRadius.circular(10),
                                         child: Image.network(
@@ -247,7 +279,10 @@ class _DestinationDetailScreenState extends State<DestinationDetailScreen> {
                           },
                         ),
                         const SizedBox(
-                          height: 40,
+
+                          height: 100,
+                          
+
                         )
                       ],
                     ),
