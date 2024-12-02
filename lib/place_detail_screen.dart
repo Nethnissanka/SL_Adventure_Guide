@@ -1,4 +1,5 @@
 import 'package:adventure_guide/Provider/favorite_provider.dart';
+import 'package:adventure_guide/custom_info_windows.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:adventure_guide/widgets/my_icon_button.dart';
@@ -225,13 +226,19 @@ class _DestinationDetailScreenState extends State<DestinationDetailScreen> {
                                   child: Card(
                                     elevation: 5,
                                     shape: RoundedRectangleBorder(
+
                                       borderRadius: BorderRadius.circular(25),
+
                                     ),
                                     color: Colors.white,
                                     child: ListTile(
                                       contentPadding:
                                           const EdgeInsets.symmetric(
+
                                               vertical: 15, horizontal: 5),
+
+                                             
+
                                       leading: ClipRRect(
                                         borderRadius: BorderRadius.circular(10),
                                         child: Image.network(
@@ -272,7 +279,10 @@ class _DestinationDetailScreenState extends State<DestinationDetailScreen> {
                           },
                         ),
                         const SizedBox(
+
                           height: 100,
+                          
+
                         )
                       ],
                     ),
@@ -300,7 +310,15 @@ class _DestinationDetailScreenState extends State<DestinationDetailScreen> {
                   const EdgeInsets.symmetric(horizontal: 100, vertical: 13),
               foregroundColor: Colors.white,
             ),
-            onPressed: () {},
+            onPressed: () {
+              // Navigate to the map screen when the button is clicked
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const CustomInfoWindows(), // Map Screen
+                ),
+              );
+            },
             child: const Text(
               "Go to Destination",
               style: TextStyle(
