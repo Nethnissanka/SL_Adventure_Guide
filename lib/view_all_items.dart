@@ -27,6 +27,7 @@ class _ViewAllItemsState extends State<ViewAllItems> {
         actions: [
           const SizedBox(width: 15),
           MyIconButton(
+            color: Colors.black, // MyIconButton is a custom widget
             icon: Icons.arrow_back_ios_new,
             pressed: () {
               Navigator.pop(context);
@@ -43,6 +44,7 @@ class _ViewAllItemsState extends State<ViewAllItems> {
           ),
           const Spacer(),
           MyIconButton(
+            color: Colors.black,
             icon: Iconsax.notification,
             pressed: () {},
           ),
