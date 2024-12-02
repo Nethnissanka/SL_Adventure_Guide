@@ -28,7 +28,7 @@ class _CustomInfoWindowsState extends State<CustomInfoWindows> {
 
   // Corresponding names for the locations
   final List<String> locationNames = [
-    "  Baththangunduwa",
+    "  Baththalangunduwa",
     "  Bomburu Ella",
     "  Blue Beach Island",
     "  Madu River"
