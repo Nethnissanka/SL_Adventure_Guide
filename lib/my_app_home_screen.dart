@@ -288,6 +288,7 @@ class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
             itemCount: allCategoryData.length,
             itemBuilder: (context, index) {
               final itemName = allCategoryData[index]['name'];
+              return null;
 
               // return GestureDetector(
               //   onTap: () {

@@ -47,6 +47,9 @@ dependencies:
   cloud_firestore: ^5.5.0
   provider: ^6.1.2
   carousel_slider: ^5.0.0
+  geolocator: ^13.0.2
+  flutter_map: ^7.0.2
+  custom_info_window: ^1.0.1
 
 dev_dependencies:
   flutter_test:

@@ -1,6 +1,5 @@
 import 'package:adventure_guide/view_all_items.dart';
 import 'package:flutter/material.dart';
-import 'package:adventure_guide/widgets/const.dart';
 
 class BannerToExplore extends StatelessWidget {
   const BannerToExplore({super.key});
@@ -20,7 +19,6 @@ class BannerToExplore extends StatelessWidget {
             top: 32,
             left: 20,
             child: Column(
-              
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const Text(
@@ -44,11 +42,11 @@ class BannerToExplore extends StatelessWidget {
                   ),
                   onPressed: () {
                     Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) => const ViewAllItems(),
-                              ),
-                            );
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => const ViewAllItems(),
+                      ),
+                    );
                   },
                   child: const Text(
                     "Explore",

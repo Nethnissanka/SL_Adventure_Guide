@@ -1,4 +1,5 @@
 import 'package:adventure_guide/Provider/favorite_provider.dart';
+import 'package:adventure_guide/custom_info_windows.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:adventure_guide/widgets/my_icon_button.dart';
@@ -10,7 +11,8 @@ class DestinationDetailScreen extends StatefulWidget {
   const DestinationDetailScreen({super.key, required this.documentSnapshot});
 
   @override
-  State<DestinationDetailScreen> createState() => _DestinationDetailScreenState();
+  State<DestinationDetailScreen> createState() =>
+      _DestinationDetailScreenState();
 }
 
 class _DestinationDetailScreenState extends State<DestinationDetailScreen> {
@@ -142,99 +144,114 @@ class _DestinationDetailScreenState extends State<DestinationDetailScreen> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 30),  // Add some space between description and new places
-                  
+                  const SizedBox(
+                      height:
+                          30), // Add some space between description and new places
+
                   // New Places Section
                   Padding(
-  padding: const EdgeInsets.only(top: 20),
-  child: Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Text(
-        "Recommended",
-        style: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.w600,
-          color: Colors.black,
-          letterSpacing: 0.5,
-        ),
-      ),
-      const SizedBox(height: 10),
-      StreamBuilder<QuerySnapshot>(
-        stream: FirebaseFirestore.instance
-            .collection('destinations') // Adjust your collection name if needed
-            .orderBy('Likes', descending: true) // Use 'addedDate' to show the most recent places
-            .limit(3) // Limit to 3 places
-            .snapshots(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          }
+                    padding: const EdgeInsets.only(top: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text(
+                          "Recommended",
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.w600,
+                            color: Colors.black,
+                            letterSpacing: 0.5,
+                          ),
+                        ),
+                        const SizedBox(height: 10),
+                        StreamBuilder<QuerySnapshot>(
+                          stream: FirebaseFirestore.instance
+                              .collection(
+                                  'destinations') // Adjust your collection name if needed
+                              .orderBy('Likes',
+                                  descending:
+                                      true) // Use 'addedDate' to show the most recent places
+                              .limit(3) // Limit to 3 places
+                              .snapshots(),
+                          builder: (context, snapshot) {
+                            if (snapshot.connectionState ==
+                                ConnectionState.waiting) {
+                              return const Center(
+                                  child: CircularProgressIndicator());
+                            }
 
-          if (snapshot.hasError) {
-            return Center(child: Text('Error: ${snapshot.error}'));
-          }
+                            if (snapshot.hasError) {
+                              return Center(
+                                  child: Text('Error: ${snapshot.error}'));
+                            }
 
-          if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-            return const Center(child: Text('No newly added places. Stay tuned for more!'));
-          }
+                            if (!snapshot.hasData ||
+                                snapshot.data!.docs.isEmpty) {
+                              return const Center(
+                                  child: Text(
+                                      'No newly added places. Stay tuned for more!'));
+                            }
 
-          return Column(
-            children: snapshot.data!.docs.map((document) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8.0),
-                child: Card(
-                  elevation: 5,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(5),
+                            return Column(
+                              children: snapshot.data!.docs.map((document) {
+                                return Padding(
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 8.0),
+                                  child: Card(
+                                    elevation: 5,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(5),
+                                    ),
+                                    color: Colors.white,
+                                    child: ListTile(
+                                      contentPadding:
+                                          const EdgeInsets.symmetric(
+                                              vertical: 5, horizontal: 5),
+                                      leading: ClipRRect(
+                                        borderRadius: BorderRadius.circular(10),
+                                        child: Image.network(
+                                          document['pic'],
+                                          width: 90,
+                                          height: 90,
+                                          fit: BoxFit.cover,
+                                        ),
+                                      ),
+                                      title: Text(
+                                        document['Name'],
+                                        style: const TextStyle(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.black87,
+                                        ),
+                                      ),
+                                      subtitle: Text(
+                                        document['District'],
+                                        style: TextStyle(
+                                          fontSize: 16,
+                                          color: Colors.grey[600],
+                                        ),
+                                      ),
+                                      trailing: Icon(
+                                        Icons.arrow_forward_ios,
+                                        size: 18,
+                                        color: Colors.grey[700],
+                                      ),
+                                      onTap: () {
+                                        // Implement navigation to another screen if needed
+                                      },
+                                    ),
+                                  ),
+                                );
+                              }).toList(),
+                            );
+                          },
+                        ),
+                        const SizedBox(
+                          height: 40,
+                        )
+                      ],
+                    ),
                   ),
-                  color: Colors.white,
-                  child: ListTile(
-                    contentPadding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-                    leading: ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.network(
-                        document['pic'],
-                        width: 90,
-                        height: 90,
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                    title: Text(
-                      document['Name'],
-                      style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black87,
-                      ),
-                    ),
-                    subtitle: Text(
-                      document['District'],
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.grey[600],
-                      ),
-                    ),
-                    trailing: Icon(
-                      Icons.arrow_forward_ios,
-                      size: 18,
-                      color: Colors.grey[700],
-                    ),
-                    onTap: () {
-                      // Implement navigation to another screen if needed
-                    },
-                  ),
-                ),
-              );
-            }).toList(),
-          );
-        },
-      ),
-      const SizedBox(height: 40,)
-    ],
-  ),
-),
-
                 ],
               ),
             ),
@@ -254,10 +271,19 @@ class _DestinationDetailScreenState extends State<DestinationDetailScreen> {
           ElevatedButton(
             style: ElevatedButton.styleFrom(
               backgroundColor: const Color.fromARGB(255, 10, 78, 68),
-              padding: const EdgeInsets.symmetric(horizontal: 100, vertical: 13),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 100, vertical: 13),
               foregroundColor: Colors.white,
             ),
-            onPressed: () {},
+            onPressed: () {
+              // Navigate to the map screen when the button is clicked
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const CustomInfoWindows(), // Map Screen
+                ),
+              );
+            },
             child: const Text(
               "Go to Destination",
               style: TextStyle(

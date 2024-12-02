@@ -1,13 +1,15 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart'; // Only import once
-import 'package:adventure_guide/pages/landing.dart';
+import 'package:google_fonts/google_fonts.dart'; // Import Google Fonts
 import 'package:provider/provider.dart'; // Import Provider
+import 'package:adventure_guide/pages/landing.dart'; // Import your landing page
 import 'package:adventure_guide/Provider/favorite_provider.dart'; // Import your FavoriteProvider
+import 'package:adventure_guide/custom_info_windows.dart'; // Import the map screen
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  // Firebase initialization
   try {
     await Firebase.initializeApp();
     print("Firebase Initialized Successfully!");
@@ -18,7 +20,7 @@ void main() async {
   runApp(
     // Wrap your app with ChangeNotifierProvider to provide FavoriteProvider
     ChangeNotifierProvider(
-      create: (context) => FavoriteProvider(), // Provide FavoriteProvider
+      create: (context) => FavoriteProvider(),
       child: const MyApp(),
     ),
   );
@@ -29,22 +31,16 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => FavoriteProvider()),
-      ],
-      child: MaterialApp(
-        title: 'Travel App',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-          textTheme: GoogleFonts.mulishTextTheme(
-            Theme.of(context).textTheme,
-          ),
+    return MaterialApp(
+      title: 'Travel App',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        textTheme: GoogleFonts.mulishTextTheme(
+          Theme.of(context).textTheme,
         ),
-        // Set the initial screen of your app
-        home: const TravelOnBoardingScreen(),
       ),
+      home: const TravelOnBoardingScreen(),
     );
   }
 }
