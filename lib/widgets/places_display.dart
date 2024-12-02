@@ -1,4 +1,5 @@
 // widgets/places_display.dart
+import 'package:adventure_guide/place_detail_screen.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:adventure_guide/Provider/favorite_provider.dart';
@@ -15,6 +16,12 @@ class PlacesDisplay extends StatelessWidget {
     final provider = FavoriteProvider.of(context);
 
     return GestureDetector(
+      onTap: () {
+        Navigator.push(
+          context,MaterialPageRoute(
+          builder:  (context) => 
+        DestinationDetailScreen(documentSnapshot: documentSnapshot)));
+      },
       child: Container(
         margin: const EdgeInsets.only(right: 10),
         width: 230,

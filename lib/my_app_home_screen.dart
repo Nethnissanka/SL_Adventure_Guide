@@ -59,7 +59,6 @@ class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
                         "Categories",
                         style: TextStyle(
                           fontSize: 20,
-                          
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -98,7 +97,6 @@ class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
                         ),
                       ],
                     ),
-                    
                   ],
                 ),
               ),
@@ -129,7 +127,7 @@ class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
               const SizedBox(height: 10),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 15),
-                child:Column(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     const SizedBox(height: 10),
@@ -142,7 +140,6 @@ class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
                         "Newly Added",
                         style: TextStyle(
                           fontSize: 20,
-                          
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -151,36 +148,35 @@ class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
                     const SizedBox(height: 10),
                     const Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      
                     ),
-                    
-                    
                   ],
                 ),
               ),
               StreamBuilder(
-  stream: allRecipes.orderBy('Rate', descending: true).snapshots(),
-  builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-    if (snapshot.hasData) {
-      final List<DocumentSnapshot> recipes = snapshot.data?.docs ?? [];
-      return Padding(
-        padding: const EdgeInsets.only(top: 5, left: 15, bottom: 20),
-        child: SingleChildScrollView(
-          scrollDirection: Axis.horizontal,
-          child: Row(
-            children: recipes
-                .map((e) => PlacesDisplay(documentSnapshot: e))
-                .toList(),
-          ),
-        ),
-      );
-    }
-    return const Center(
-      child: CircularProgressIndicator(),
-    );
-  },
-),
-
+                stream:
+                    allRecipes.orderBy('Rate', descending: true).snapshots(),
+                builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+                  if (snapshot.hasData) {
+                    final List<DocumentSnapshot> recipes =
+                        snapshot.data?.docs ?? [];
+                    return Padding(
+                      padding:
+                          const EdgeInsets.only(top: 5, left: 15, bottom: 20),
+                      child: SingleChildScrollView(
+                        scrollDirection: Axis.horizontal,
+                        child: Row(
+                          children: recipes
+                              .map((e) => PlacesDisplay(documentSnapshot: e))
+                              .toList(),
+                        ),
+                      ),
+                    );
+                  }
+                  return const Center(
+                    child: CircularProgressIndicator(),
+                  );
+                },
+              ),
 
               // StreamBuilder(
               //   stream: selectedRecipes.snapshots(),
@@ -264,41 +260,41 @@ class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
         );
       },
     );
-    
   }
- StreamBuilder<QuerySnapshot<Object?>> allCategory() {
-  return StreamBuilder(
-    stream: categoriesItems.snapshots(),
-    builder: (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {
-      if (streamSnapshot.hasData) {
-        // Filter for the "All" category
-        final allCategoryData = streamSnapshot.data!.docs
-            .where((doc) => doc['name'] == 'All')
-            .toList();
 
-        if (allCategoryData.isEmpty) {
-          return const Center(
-            child: Text(
-              'Category "All" not found',
-              style: TextStyle(color: Colors.grey),
-            ),
-          );
-        }
+  StreamBuilder<QuerySnapshot<Object?>> allCategory() {
+    return StreamBuilder(
+      stream: categoriesItems.snapshots(),
+      builder: (context, AsyncSnapshot<QuerySnapshot> streamSnapshot) {
+        if (streamSnapshot.hasData) {
+          // Filter for the "All" category
+          final allCategoryData = streamSnapshot.data!.docs
+              .where((doc) => doc['name'] == 'All')
+              .toList();
 
-        return ListView.builder(
-          padding: const EdgeInsets.all(10),
-          shrinkWrap: true,
-          physics: const ClampingScrollPhysics(),
-          itemCount: allCategoryData.length,
-          itemBuilder: (context, index) {
-            final itemName = allCategoryData[index]['name'];
+          if (allCategoryData.isEmpty) {
+            return const Center(
+              child: Text(
+                'Category "All" not found',
+                style: TextStyle(color: Colors.grey),
+              ),
+            );
+          }
 
-            // return GestureDetector(
-            //   onTap: () {
-            //     setState(() {
-            //       Category = itemName;
-            //     });
-            //   },
+          return ListView.builder(
+            padding: const EdgeInsets.all(10),
+            shrinkWrap: true,
+            physics: const ClampingScrollPhysics(),
+            itemCount: allCategoryData.length,
+            itemBuilder: (context, index) {
+              final itemName = allCategoryData[index]['name'];
+
+              // return GestureDetector(
+              //   onTap: () {
+              //     setState(() {
+              //       Category = itemName;
+              //     });
+              //   },
               // child: Container(
               //   decoration: BoxDecoration(
               //     borderRadius: BorderRadius.circular(25),
@@ -321,19 +317,18 @@ class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
               //     ),
               //   ),
               // ),
-            // );
-          },
+              // );
+            },
+          );
+        }
+
+        // If the snapshot doesn't have data, show a progress indicator
+        return const Center(
+          child: CircularProgressIndicator(),
         );
-      }
-
-      // If the snapshot doesn't have data, show a progress indicator
-      return const Center(
-        child: CircularProgressIndicator(),
-      );
-    },
-  );
-}
-
+      },
+    );
+  }
 
   Padding mySearchBar() {
     return Padding(
@@ -366,7 +361,7 @@ class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
         const Text(
           "Explore \nthe Nature?",
           style: TextStyle(
-            fontSize:50,
+            fontSize: 50,
             fontFamily: 'Poppins',
             color: Color.fromARGB(255, 6, 76, 72),
             fontWeight: FontWeight.bold,
@@ -375,6 +370,7 @@ class _MyAppHomeScreenState extends State<MyAppHomeScreen> {
         ),
         const Spacer(),
         MyIconButton(
+          color: const Color.fromARGB(255, 5, 63, 47),
           icon: Iconsax.notification,
           pressed: () {},
         ),
