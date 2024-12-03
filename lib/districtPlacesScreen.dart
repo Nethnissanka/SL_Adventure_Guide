@@ -13,9 +13,15 @@ class DistrictPlacesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: const Color.fromARGB(255, 6, 76, 72),
         centerTitle: true,
+        
 
-        title: Text('Places in District'),
+        title: Text('District Places', style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+            fontFamily: 'arial'
+          ),),
       ),
       body: StreamBuilder<QuerySnapshot>(
         stream: FirebaseFirestore.instance
