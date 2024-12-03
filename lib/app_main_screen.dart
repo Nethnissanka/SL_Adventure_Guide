@@ -27,8 +27,10 @@ class _AppMainScreenState extends State<AppMainScreen> {
       const MyAppHomeScreen(), // Main Home Screen
       const DistrictScreen(), // Distric wise Screen
       const FavoriteScreen(), // Fav Screen
+
       ProfileScreen(), // Profile Screen
       // const SettingsScreen(),// Settings Screen
+
     ];
   }
 
@@ -51,7 +53,8 @@ class _AppMainScreenState extends State<AppMainScreen> {
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: Icon(selectedIndex == 1 ? Iconsax.location : Iconsax.location),
+            icon:
+                Icon(selectedIndex == 1 ? Iconsax.location : Iconsax.location),
             label: "Districts",
           ),
           BottomNavigationBarItem(
@@ -66,10 +69,12 @@ class _AppMainScreenState extends State<AppMainScreen> {
             icon: Icon(selectedIndex == 3 ? Iconsax.user : Iconsax.user),
             label: "Profile",
           ),
+
           // BottomNavigationBarItem(
           //   icon: Icon(selectedIndex == 4 ? Iconsax.setting_21 : Iconsax.setting_2),
           //   label: "Settings",
           // ),
+
         ],
       ),
     );
@@ -85,35 +90,6 @@ class _AppMainScreenState extends State<AppMainScreen> {
     );
   }
 }
-
-// Dummy screens for demonstration
-
-
-// class ProfileScreen extends StatelessWidget {
-//   const ProfileScreen({super.key});
-
-  
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       home: Scaffold(
-//         appBar: AppBar(
-//           title: const Text('Profile'),
-//           actions: [
-//             ElevatedButton(onPressed: () async {
-
-//             }, 
-//             child: const Icon(Icons.logout)),
-//           ],
-//         ),
-//         body: const Center(
-//           child: Text('This is the Profile screen.'),
-//         ),
-//       ),
-//     );
-//   }
-// }
 
 
 class SettingsScreen extends StatelessWidget {

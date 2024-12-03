@@ -22,13 +22,17 @@ class _CustomInfoWindowsState extends State<CustomInfoWindows> {
     const LatLng(8.0362, 79.8283), // Puttalam
     const LatLng(6.9802, 81.0577), // Badulla
     const LatLng(5.94851, 80.53528), // Matara
+    const LatLng(6.0367, 80.217), //Galle
+    const LatLng(7.05, 81.13), //Madolsima
   ];
 
   // Corresponding names for the locations
   final List<String> locationNames = [
-    "  Baththangunduwa",
+    "  Baththalangunduwa",
     "  Bomburu Ella",
     "  Blue Beach Island",
+    "  Madu River",
+    "  Madolsima"
   ];
 
   // Corresponding image URLs for the locations
@@ -36,6 +40,8 @@ class _CustomInfoWindowsState extends State<CustomInfoWindows> {
     "https://th.bing.com/th/id/R.d045cffeaafaf843b2b973b3ba25abdf?rik=HsxBT2biFZ88Og&riu=http%3a%2f%2fwww.kalpitiyatours.com%2fimg%2fguestphotos%2fcamping%2fcamping-2.jpg&ehk=u6UO9s%2bwUB477NemiXry3myStYs217%2bzgtEJ36517LI%3d&risl=&pid=ImgRaw&r=0",
     "https://thumbs.dreamstime.com/b/bomburu-ella-fantastic-waterfall-hill-side-sri-lanka-fantastic-cascade-hill-side-sri-lanka-drizzling-to-251681973.jpg",
     "https://th.bing.com/th/id/OIP.Qdf1RUf9iwiUK1mUOfMw6AHaFB?rs=1&pid=ImgDetMain",
+    "https://deyotours.com/wp-content/uploads/2022/10/Madu-River-KothDuwa.jpg",
+    "https://th.bing.com/th/id/R.fe8c00b86ee04e6e8153e58ab72b3b16?rik=IJ%2b3adB6Q5K3sA&pid=ImgRaw&r=0"
   ];
 
   @override
@@ -130,7 +136,7 @@ class _CustomInfoWindowsState extends State<CustomInfoWindows> {
           GoogleMap(
             initialCameraPosition: const CameraPosition(
               target: LatLng(
-                  28.2096, 83.9856), // Initial position of the camera (Pokhara)
+                  7.05, 81.13), // Initial position of the camera (Pokhara)
               zoom: 7, // Initial zoom level
             ),
             markers: markers, // Set of markers to be displayed on the map
