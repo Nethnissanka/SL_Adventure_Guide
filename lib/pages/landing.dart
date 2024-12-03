@@ -1,3 +1,4 @@
+import 'package:adventure_guide/wrapper.dart';
 import 'package:flutter/material.dart';
 import 'package:adventure_guide/models/landing_model.dart';
 import 'package:adventure_guide/home.dart';
@@ -60,7 +61,7 @@ class _TravelOnBoardingScreenState extends State<TravelOnBoardingScreen> {
                         Navigator.pushAndRemoveUntil(
                           context,
                           MaterialPageRoute(
-                            builder: (_) => const HomePage(),
+                            builder: (_) => const Wrapper(),
                           ),
                           (route) => false,
                         );
@@ -139,7 +140,7 @@ class _TravelOnBoardingScreenState extends State<TravelOnBoardingScreen> {
                               Navigator.pushAndRemoveUntil(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (_) => const AppMainScreen(),
+                                  builder: (_) => const Wrapper(),
                                 ),
                                 (route) => false,
                               );
@@ -173,30 +174,22 @@ class _TravelOnBoardingScreenState extends State<TravelOnBoardingScreen> {
                             ),
                           ),
                           const SizedBox(height: 15),
-                          RichText(
-                            text: const TextSpan(
-                              children: [
-                                TextSpan(
-                                  text: "Already have an account? ",
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontFamily: 'Roboto',
-                                    fontWeight: FontWeight.w600,
-                                    color: Color.fromARGB(255, 255, 255, 255),
-                                  ),
-                                ),
-                                TextSpan(
-                                  text: "Login",
-                                  style: TextStyle(
-                                    color: Color(0xFFE7B41B),
-                                    fontSize: 18,
-                                    fontFamily: 'Roboto',
-                                    fontWeight: FontWeight.w900,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
+                          //RichText(
+                            // text: const TextSpan(
+                            //   children: [
+                            //     TextSpan(
+                            //       text: "Already have an account? ",
+                            //       style: TextStyle(
+                            //         fontSize: 18,
+                            //         fontFamily: 'Roboto',
+                            //         fontWeight: FontWeight.w600,
+                            //         color: Color.fromARGB(255, 255, 255, 255),
+                            //       ),
+                            //     ),
+                                
+                            //   ],
+                            // ),
+                          //),
                         ],
                       ),
                     ),

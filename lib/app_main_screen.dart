@@ -2,6 +2,7 @@
 import 'package:adventure_guide/districtScreen.dart';
 import 'package:adventure_guide/favorite_screen.dart';
 import 'package:adventure_guide/my_app_home_screen.dart';
+import 'package:adventure_guide/profile_screen.dart';
 import 'package:adventure_guide/widgets/const.dart';
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart'; // Make sure to add the iconsax package to your pubspec.yaml
@@ -26,8 +27,8 @@ class _AppMainScreenState extends State<AppMainScreen> {
       const MyAppHomeScreen(), // Main Home Screen
       const DistrictScreen(), // Distric wise Screen
       const FavoriteScreen(), // Fav Screen
-      const ProfileScreen(), // Profile Screen
-      const SettingsScreen(),// Settings Screen
+      ProfileScreen(), // Profile Screen
+      // const SettingsScreen(),// Settings Screen
     ];
   }
 
@@ -65,10 +66,10 @@ class _AppMainScreenState extends State<AppMainScreen> {
             icon: Icon(selectedIndex == 3 ? Iconsax.user : Iconsax.user),
             label: "Profile",
           ),
-          BottomNavigationBarItem(
-            icon: Icon(selectedIndex == 4 ? Iconsax.setting_21 : Iconsax.setting_2),
-            label: "Settings",
-          ),
+          // BottomNavigationBarItem(
+          //   icon: Icon(selectedIndex == 4 ? Iconsax.setting_21 : Iconsax.setting_2),
+          //   label: "Settings",
+          // ),
         ],
       ),
     );
@@ -88,16 +89,31 @@ class _AppMainScreenState extends State<AppMainScreen> {
 // Dummy screens for demonstration
 
 
-class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+// class ProfileScreen extends StatelessWidget {
+//   const ProfileScreen({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('This is the Profile screen.'),
-    );
-  }
-}
+  
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return MaterialApp(
+//       home: Scaffold(
+//         appBar: AppBar(
+//           title: const Text('Profile'),
+//           actions: [
+//             ElevatedButton(onPressed: () async {
+
+//             }, 
+//             child: const Icon(Icons.logout)),
+//           ],
+//         ),
+//         body: const Center(
+//           child: Text('This is the Profile screen.'),
+//         ),
+//       ),
+//     );
+//   }
+// }
 
 
 class SettingsScreen extends StatelessWidget {
