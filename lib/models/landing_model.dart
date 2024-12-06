@@ -14,6 +14,10 @@ List<OnboardModel> onboarding = [
      image: 'assets/lan1.jpg',
     name: 'Explore Ancient Sites and Wonders',
   ),
+    OnboardModel(
+    image: 'assets/lan9.jpg',
+    name: 'Relax at Sri Lanka\'s Serene Coastal Shores',
+  ),
   OnboardModel(
      image: 'assets/lan4.jfif',
     name: "Hike the Majestic Mountain Trails",

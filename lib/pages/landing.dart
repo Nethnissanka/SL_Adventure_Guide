@@ -149,7 +149,7 @@ class _TravelOnBoardingScreenState extends State<TravelOnBoardingScreen> {
                               height: 55,
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(15),
-                                color: const Color.fromARGB(255, 19, 19, 19),
+                                color: const Color.fromARGB(255, 45, 45, 45),
                               ),
                               child: const Row(
                                 mainAxisAlignment: MainAxisAlignment.center,

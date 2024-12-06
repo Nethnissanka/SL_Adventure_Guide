@@ -45,7 +45,7 @@ class _GoogleMapPolylineState extends State<GoogleMapPolyline> {
           Polyline(
             polylineId: const PolylineId("Id"),
             points: pointOnMap,
-            color: Colors.blue,
+            color: const Color.fromARGB(255, 167, 23, 5),
           ),
         );
       });
