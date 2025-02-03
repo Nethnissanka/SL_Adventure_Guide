@@ -21,7 +21,7 @@ Include relevant screenshots here to showcase the app’s features.
 ![Screenshot 3](assets/screenshot3.png)
 ![Screenshot 4](assets/screenshot4.png)
 ![Screenshot 5](assets/screenshot5.png)
-![Screenshot 5](assets/screenshot6.png)
+![Screenshot 6](assets/screenshot6.png)
 
 
 
