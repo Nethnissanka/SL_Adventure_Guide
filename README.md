@@ -16,11 +16,13 @@ This is a mobile application designed to uncover and showcase the hidden natural
 
 Include relevant screenshots here to showcase the app’s features.
 
-![Screenshot 1](assets/screenshot (1).png)
-![Screenshot 2](assets/screenshot (2).png)
-![Screenshot 3](assets/screenshot (3).png)
-![Screenshot 4](assets/screenshot (4).png)
-![Screenshot 5](assets/screenshot (5).png)
+![Screenshot 1](assets/screenshot1.png)
+![Screenshot 2](assets/screenshot2.png)
+![Screenshot 3](assets/screenshot3.png)
+![Screenshot 4](assets/screenshot4.png)
+![Screenshot 5](assets/screenshot5.png)
+![Screenshot 5](assets/screenshot6.png)
+
 
 
 ## Getting Started
